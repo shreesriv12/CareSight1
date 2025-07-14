@@ -1,6 +1,7 @@
-// app/layout.js
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 import { AuthProvider } from "@/hooks/useAuth";
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
             {children}
         </AuthProvider>
+        <Toaster />
       </body>
     </html>
   );
