@@ -1,5 +1,4 @@
 
-// !UI
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -60,9 +59,13 @@ export default function Signup() {
                           user.role === 'nurse' ? '/nurse' : '/admin';
       console.log('User already logged in, redirecting to:', redirectPath);
       
-      toast.success("Welcome back!", {
-        description: `Redirecting to your ${user.role} dashboard...`,
+      toast.success("Welcome!", {
+        description: `Redirecting to your dashboard...`,
         duration: 2000,
+        style: {
+          backgroundColor: '#16a34a', // green-600
+          color: '#ffffff',
+        },
       });
       
       router.push(redirectPath);
@@ -87,12 +90,15 @@ export default function Signup() {
 
     try {
       console.log('Attempting sign up with:', formData.email);
-      await signUp(formData.email, formData.password, formData.fullName);
+      const data = await signUp(formData.email, formData.password, formData.fullName);
+      console.log(data)
       
       toast.success("Account created successfully!", {
-        description: "Welcome to VoiceOut! Please check your email to verify your account.",
+        description: "Welcome to VoiceOut!",
         duration: 5000,
       });
+
+      
       
       // Auth state change will handle redirect to /patient
     } catch (error) {
@@ -105,6 +111,7 @@ export default function Signup() {
       });
     } finally {
       setLoading(false);
+      window.location.reload();
     }
   };
 
@@ -160,8 +167,8 @@ export default function Signup() {
         <SparklesCore
           background="transparent"
           minSize={0.4}
-          maxSize={1}
-          particleDensity={1200}
+          maxSize={1.5}
+          particleDensity={400}
           className="w-full h-full"
           particleColor="#10b981"
         />
@@ -205,7 +212,7 @@ export default function Signup() {
           </div>
 
           {/* Main Signup Card */}
-          <Card className={`shadow-2xl border-0 bg-black/40 backdrop-blur-md border border-white/10 transform transition-all duration-1000 delay-200 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <Card className={`shadow-2xl border-0 bg-black/40 backdrop-blur-md border-white/10 transform transition-all duration-1000 delay-200 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <CardHeader className="space-y-1 pb-6">
               <CardTitle className="text-2xl font-semibold text-center text-white">
                 Patient Registration
