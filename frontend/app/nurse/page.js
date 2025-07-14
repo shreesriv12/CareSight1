@@ -16,6 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { SparklesCore } from '@/components/ui/sparkles';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 import { toast } from 'sonner';
+import { SignOutButton } from "@/components/LogOut"
 import { 
   Stethoscope,
   Users,
@@ -293,7 +294,7 @@ export default function NurseDashboard() {
                 </div>
                 
                 <div className="flex items-center space-x-4">
-                  <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200">
+                  <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200 text-2xl">
                     Welcome, {user?.full_name}
                   </Badge>
                   <Button
@@ -317,6 +318,7 @@ export default function NurseDashboard() {
                   >
                     {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
                   </Button>
+                    <SignOutButton darkMode={darkMode} />
                 </div>
               </div>
             </CardHeader>
