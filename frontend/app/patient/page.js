@@ -116,8 +116,8 @@ export default function PatientDashboard() {
         const { data: nurse, error: nurseError } = await supabase
           .from('users')
           .select('full_name, email')
-          .eq('id', patient.assigned_nurse_id)
-          .single();
+          .eq('id', String(patient.assigned_nurse_id))
+          .maybeSingle();
 
         if (!nurseError) {
           setAssignedNurse(nurse);
