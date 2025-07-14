@@ -36,6 +36,7 @@ import {
   CheckCircle, 
   Pill, 
   Upload, 
+  Loader2,
   Clock 
 } from 'lucide-react';
 
