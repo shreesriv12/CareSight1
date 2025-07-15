@@ -14,6 +14,8 @@ import { Badge } from '@/components/ui/badge';
 import { SparklesCore } from '@/components/ui/sparkles';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 import { toast } from 'sonner';
+import { Brain } from 'lucide-react'
+import Link from 'next/link';
 import { SignOutButton } from "@/components/LogOut"
 import { 
   User, 
@@ -743,6 +745,21 @@ export default function PatientDashboard() {
                     </Button>
                   </CardContent>
                 </Card>
+                <Card className={`${themeClasses.card} group hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer`}>
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Brain className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className={`text-lg font-semibold ${themeClasses.text} mb-2`}>Emotion Detection</h3>
+                      <p className={`text-sm ${themeClasses.textMuted}`}>Analyze emotions using AI-powered facial recognition</p>
+                      <Link href="/emotion">
+                      <Button
+        className={`mt-3 ${themeClasses.button} text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105`}>
+        Start Detection
+        </Button>
+       </Link>
+    </CardContent>
+     </Card>
               </div>
             </CardContent>
           </Card>
